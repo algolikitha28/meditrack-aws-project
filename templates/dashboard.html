@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MediTrack Dashboard</title>
+</head>
+<body>
+
+<h1>MediTrack Dashboard</h1>
+
+<a href="/add_equipment">Add Equipment</a>
+<br><br>
+<a href="/equipment">View Equipment</a>
+
+<h2>Total Equipment: {{ total }}</h2>
+
+<h2>Status Summary</h2>
+
+<ul>
+{% for item in status_counts %}
+<li>{{ item.status }} : {{ item.count }}</li>
+{% endfor %}
+</ul>
+
+<h2>Overdue Maintenance</h2>
+
+<table border="1">
+<tr>
+    <th>Equipment</th>
+    <th>Next Due Date</th>
+</tr>
+
+{% for item in overdue %}
+<tr>
+    <td>{{ item.equipment_name }}</td>
+    <td>{{ item.next_due_date }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

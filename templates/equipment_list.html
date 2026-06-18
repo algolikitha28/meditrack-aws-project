@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Equipment List</title>
+</head>
+<body>
+
+<h1>Equipment List</h1>
+
+<a href="/add_equipment">Add Equipment</a>
+
+<table border="1">
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Serial</th>
+<th>Department</th>
+<th>Purchase Date</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+
+{% for e in equipment %}
+
+<tr>
+
+<td>{{ e.equipment_id }}</td>
+<td>{{ e.equipment_name }}</td>
+<td>{{ e.serial_number }}</td>
+<td>{{ e.department }}</td>
+<td>{{ e.purchase_date }}</td>
+<td>{{ e.status }}</td>
+
+<td>
+
+<a href="/maintenance/{{ e.equipment_id }}">
+Add Maintenance
+</a>
+
+|
+
+<a href="/history/{{ e.equipment_id }}">
+History
+</a>
+
+<form method="POST"
+action="/update_status/{{ e.equipment_id }}">
+
+<select name="status">
+
+<option>Active</option>
+
+<option>
+Under Maintenance
+</option>
+
+<option>
+Decommissioned
+</option>
+
+</select>
+
+<button type="submit">
+Update
+</button>
+
+</form>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

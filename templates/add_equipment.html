@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Equipment</title>
+</head>
+<body>
+
+<h1>Add Equipment</h1>
+
+<form method="POST">
+
+<label>Equipment Name</label>
+<input type="text" name="equipment_name" required>
+<br><br>
+
+<label>Serial Number</label>
+<input type="text" name="serial_number" required>
+<br><br>
+
+<label>Department</label>
+<input type="text" name="department" required>
+<br><br>
+
+<label>Purchase Date</label>
+<input type="date" name="purchase_date" required>
+<br><br>
+
+<label>Status</label>
+
+<select name="status">
+    <option>Active</option>
+    <option>Under Maintenance</option>
+    <option>Decommissioned</option>
+</select>
+
+<br><br>
+
+<button type="submit">Save</button>
+
+</form>
+
+</body>
+</html>
